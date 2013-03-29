@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cairngorm:ServiceLocator  
+	xmlns:cairngorm="http://www.adobe.com/2006/cairngorm" 
+	xmlns:mx="http://www.adobe.com/2006/mxml">
+	<mx:RemoteObject id="helloRo" destination="helloDest" endpoint="http://localhost:8080/cairngorm/messagebroker/amf">
+	</mx:RemoteObject>
+</cairngorm:ServiceLocator>

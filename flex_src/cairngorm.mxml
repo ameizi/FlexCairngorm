@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" xmlns:business="com.example.business.*" xmlns:controller="com.example.controller.*">
+	<!--
+	
+	<business:Service>
+	</business:Service>
+	
+	<controller:HelloServiceController>
+	</controller:HelloServiceController>	
+	
+	-->
+	<controller:UserInfoController>
+		
+	</controller:UserInfoController>
+
+	<business:UserInfoService>
+		
+	</business:UserInfoService>	
+	
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import com.example.model.UserInfoModelLocator;
+			import com.example.event.UserInfoEvent;
+			import com.example.vo.UserInfo;
+			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			import com.example.event.HelloEvent;
+			
+			
+			internal function button_click(event:MouseEvent):void{
+				
+				/*var helloEvent:HelloEvent=new HelloEvent(txtName.text);
+				CairngormEventDispatcher.getInstance().dispatchEvent(helloEvent);*/
+				
+				var model:UserInfoModelLocator=UserInfoModelLocator.getInstance();
+				
+				
+				var userInfo:UserInfo=new UserInfo("zhangsan","xi'an","gaoxinyizhong","02-8808754");
+				
+				var userInfoEvent:UserInfoEvent=new UserInfoEvent(userInfo);
+				
+				CairngormEventDispatcher.getInstance().dispatchEvent(userInfoEvent);
+				
+				Alert.show(model.result);
+			}
+			
+			
+			
+		]]>
+	</mx:Script>
+	
+	
+	<mx:TextInput x="128" y="96" id="txtName"/>
+	<mx:Button x="369" y="96" label="Button" id="btn" click="button_click(event)"/>
+	<mx:Label x="150" y="210" width="306" id="lblTxt"/>
+	
+	
+	
+	
+</mx:Application>
